@@ -1,21 +1,21 @@
 workflows:
   unity-ios-workflow:
     name: Unity iOS Workflow
-    max_build_duration: 45
+    max_build_duration: 60
     integrations:
-      app_store_connect: '<!!!!!!!!!!!!!!!!!!!!!!!!!!!>'
+      app_store_connect: Pzakaz13WildDM
     environment:
       ios_signing:
         distribution_type: app_store
-        bundle_identifier: '<!!!!!!!!!!!!!!!!!!!!!!!!!!!>'
+        bundle_identifier: com.weap13.clothP13
       groups:
         - unity_credentials
       vars:
         UNITY_IOS_DIR: ios
         XCODE_PROJECT: "Unity-iPhone.xcodeproj"
         XCODE_SCHEME: "Unity-iPhone"
-        BUNDLE_ID: "'<!!!!!!!!!!!!!!!!!!!!!!!!!!!>'"
-        APP_STORE_APPLE_ID: '<!!!!!!!!!!!!!!!!!!!!!!!!!!!>'
+        BUNDLE_ID: "com.weap13.clothP13"
+        APP_STORE_APPLE_ID: 6476657752
     scripts:
       - name: Activate Unity license
         script: | 
@@ -57,7 +57,7 @@ workflows:
             --password ${UNITY_PASSWORD}
       email:
         recipients:
-          - '<!!!!!!!!!!!!!!!!!!!!!!!!!!!>'
+          - denwhite223@gmail.com
         notify:
           success: true
           failure: false

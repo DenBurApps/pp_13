@@ -17,12 +17,26 @@ workflows:
         BUNDLE_ID: "com.weap13.clothP13"
         APP_STORE_APPLE_ID: 6476657752
     scripts:
-      - name: Activate Unity license
-        script: | 
-          $UNITY_HOME/Contents/MacOS/Unity -batchmode -quit -logFile \
-            -serial ${UNITY_SERIAL} \
-            -username ${UNITY_EMAIL} \
-            -password ${UNITY_PASSWORD}
+      - name: Activate & Build Unity Using a Command Prompt
+        script: |
+          $Serial = @($env:UNITY_SERIAL)
+          $Email = @($env:UNITY_EMAIL)
+          $Password = @($env:UNITY_PASSWORD)            
+            Write-Host "Attempting activation for a license with the following details:"
+            Write-Host "Serial: $Serial"
+            Write-Host "Email: $Email"
+            Write-Host "Password: $Password"
+            $process = Start-Process -FilePath "$env:UNITY_HOME\Unity.exe" -Wait -PassThru -ArgumentList "-batchmode -nographics -quit 
+              -logFile -username $currentEmail -password $currentPassword -serial $currentSerial"
+              if ($process.ExitCode -eq 0) {
+                  Write-Host "Unity activated successfully"
+                  exit 0
+              } else {
+                  Write-Host "Activation failed"
+              }
+
+          Write-Host "All license activations failed!"
+          exit 1
       - name: Generate the Xcode project from Unity
         script: | 
           $UNITY_HOME/Contents/MacOS/Unity -batchmode \

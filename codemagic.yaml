@@ -9,7 +9,7 @@ workflows:
         distribution_type: app_store
         bundle_identifier: com.weap13.clothP13
       groups:
-        - unity_credentials
+        - unity_credentials.
       vars:
         UNITY_IOS_DIR: ios
         XCODE_PROJECT: "Unity-iPhone.xcodeproj"

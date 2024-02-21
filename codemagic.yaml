@@ -5,6 +5,7 @@ workflows:
     integrations:
       app_store_connect: Pzakaz13WildDM
     environment:
+	unity: 2022.3.7f1
       ios_signing:
         distribution_type: app_store
         bundle_identifier: com.weap13.clothP13

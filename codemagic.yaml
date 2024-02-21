@@ -43,6 +43,7 @@ workflows:
       - name: Install pods
         script: |
           cd $UNITY_IOS_DIR
+          pod deintegrate
           pod install
       - name: Build the project
         script: | 

@@ -44,7 +44,7 @@ workflows:
           agvtool new-version -all $BUILD_NUMBER
       - name: Install pods
         script: | 
-          pod deintegrate
+          pod deintegrate --project-directory=$UNITY_IOS_DIR
           pod install
       - name: Build the project
         script: | 

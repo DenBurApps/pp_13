@@ -17,6 +17,7 @@ workflows:
         XCODE_SCHEME: "Unity-iPhone"
         BUNDLE_ID: "com.weap13.clothP13"
         APP_STORE_APPLE_ID: 6476657752
+       cocoapods: default
     scripts:
       - name: Activate Unity license
         script: | 

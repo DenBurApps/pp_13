@@ -14,6 +14,7 @@ workflows:
       vars:
         UNITY_IOS_DIR: ios
         XCODE_PROJECT: "Unity-iPhone.xcodeproj"
+        XCODE_WORKSPACE: "Unity-iPhone.xcworkspace"
         XCODE_SCHEME: "Unity-iPhone"
         BUNDLE_ID: "com.weap13.clothP13"
         APP_STORE_APPLE_ID: 6476657752
@@ -41,11 +42,14 @@ workflows:
           BUILD_NUMBER=($(app-store-connect get-latest-app-store-build-number "$APP_STORE_APPLE_ID") + 1)
           cd $UNITY_IOS_DIR
           agvtool new-version -all $BUILD_NUMBER
+      - name: Install pods
+        script: | 
+          pod install
       - name: Build the project
         script: | 
           xcode-project build-ipa \
-            --project "$UNITY_IOS_DIR/$XCODE_PROJECT" \
-            --scheme "$XCODE_SCHEME"
+          --workspace "$UNITY_IOS_DIR/$XCODE_WORKSPACE" \
+          --scheme "$XCODE_SCHEME"
     artifacts:
       - build/ios/ipa/*.ipa
       - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM

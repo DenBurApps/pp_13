@@ -1,0 +1,31 @@
+{
+  "project_info": {
+    "project_number": "696400880060",
+    "project_id": "pp13zakazunit",
+    "storage_bucket": "pp13zakazunit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:696400880060:ios:17d3e024cffba8e1568bb9",
+        "android_client_info": {
+          "package_name": "com.weap13.clothP13"
+        }
+      },
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZm1bxw8puP9FlfDheCmXwqC-D4v3b2kE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 0
+        },
+        "appinvite_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

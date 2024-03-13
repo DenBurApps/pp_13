@@ -14,6 +14,7 @@ public class BasketShower : MonoBehaviour
     [SerializeField] private TMP_Text _totalPriseText;
     [SerializeField] private Button _checkoutButton;
     [SerializeField] private GameObject _filler;
+    [SerializeField] private GameObject _emptyAllert;
     private GameObject _currentFiller;
     private List<BasketItem> _currentItems = new List<BasketItem>();
 
@@ -69,6 +70,14 @@ public class BasketShower : MonoBehaviour
         else
         {
             _checkoutButton.interactable = true;
+        }
+        if (basket.ItemsCode.Count <= 0)
+        {
+            _emptyAllert.SetActive(true);
+        }
+        else
+        {
+            _emptyAllert.SetActive(false);
         }
     }
 }

@@ -17,6 +17,8 @@ public class CashoutShower : MonoBehaviour
     [SerializeField] private TMP_InputField _stateInput;
     [SerializeField] private TMP_InputField _zipInput;
     [SerializeField] private Toggle _saveAdressToggle;
+    [SerializeField] private OrderPopup _orderPopup;
+    [SerializeField] private OrderPopup _errorPopup;
 
     private void OnEnable()
     {
@@ -85,6 +87,11 @@ public class CashoutShower : MonoBehaviour
 
     public void OnCashoutButtonClick()
     {
+        if (_numberInput.text == "" || _firstNameInput.text == "" || _lastNameInput.text == "" || _adressInput.text == "" || _streetInput.text == "" || _stateInput.text == "" || _cityInput.text == "" || _zipInput.text == "")
+        {
+            _errorPopup.ShowOrderPopup();
+            return;
+        }
         if (_saveAdressToggle.isOn)
         {
             var customer = SaveSystem.LoadData<CustomerSaveData>();
@@ -100,6 +107,7 @@ public class CashoutShower : MonoBehaviour
         }
         BasketController.ClearBasket();       
         HideCashout();
+        _orderPopup.ShowOrderPopup();
     }
 
 }

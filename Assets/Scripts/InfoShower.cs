@@ -18,6 +18,7 @@ public class InfoShower : MonoBehaviour
     [SerializeField] private Button _addToBasketButton;
     [SerializeField] private LocalizedTMPText _nameLText;
     [SerializeField] private LocalizedTMPText _deskLText;
+    [SerializeField] private FavoriteButton _favoriteButton;
     private int _currentSize = 0;
     private ClothesSO _clothes;
 
@@ -45,7 +46,12 @@ public class InfoShower : MonoBehaviour
         _priseText.text = clothes.Cost + "$";
         _nameLText.LocalizationKey = clothes.Name;
         _deskLText.LocalizationKey = clothes.Description;
-
+        _addToBasketButton.onClick.RemoveAllListeners();
+        _addToFavoriteButton.onClick.RemoveAllListeners();
+        foreach (var item in _sizeButtons)
+        {
+            item.onClick.RemoveAllListeners();
+        }
         _sizeButtons[0].interactable = clothes.HasSize[0];
         _sizeButtons[0].onClick.AddListener(() => SetCurrentSize(0));
         _sizeButtons[1].interactable = clothes.HasSize[1];
@@ -57,6 +63,8 @@ public class InfoShower : MonoBehaviour
         _sizeButtons[4].interactable = clothes.HasSize[4];
         _sizeButtons[4].onClick.AddListener(() => SetCurrentSize(4));
         _currentSize = clothes.HasSize.FindIndex(x => x.Equals(true));
+        _favoriteButton.Init(clothes.Code, _currentSize);
+        _favoriteButton.RefreshButton();
         Debug.Log(_currentSize);
         SetCurrentSize(_currentSize);
         _addToFavoriteButton.onClick.AddListener(OnFavotiteClick);
@@ -83,5 +91,7 @@ public class InfoShower : MonoBehaviour
             item.sprite = _sizeSprites[0];
         }
         _sizeImages[_currentSize].sprite = _sizeSprites[1];
+        _favoriteButton.Init(_clothes.Code, _currentSize);
+        _favoriteButton.RefreshButton();
     }
 }

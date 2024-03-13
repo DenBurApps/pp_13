@@ -31,7 +31,8 @@ public class SaveDataInstaller : MonoBehaviour
         BindCustomer();
         BindLocalization();
         _multiLanguage.Localize();
-        StartLoading();
+        LoadScene();
+        //StartLoading();
     }
 
     private void StartLoading()

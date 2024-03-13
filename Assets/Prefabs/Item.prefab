@@ -392,6 +392,7 @@ MonoBehaviour:
   _favoriteButton: {fileID: 6675812418686393701}
   _isSale: {fileID: 6847590056984957955}
   _nameLocalized: {fileID: 8716240247225231174}
+  _favoriteBtn: {fileID: 8484088827350141715}
 --- !u!1 &4743526112781368571
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,6 +553,7 @@ GameObject:
   - component: {fileID: 6943208987390188659}
   - component: {fileID: 704565596781132319}
   - component: {fileID: 6675812418686393701}
+  - component: {fileID: 8484088827350141715}
   m_Layer: 5
   m_Name: Favorite
   m_TagString: Untagged
@@ -660,6 +662,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8484088827350141715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5739425496420896526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4e1459bb5463946a24e495a4547ae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6847590056984957955
 GameObject:
   m_ObjectHideFlags: 0

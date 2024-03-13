@@ -21,6 +21,7 @@ public static class FavoritesController
         }
         if (hasItem)
         {
+            RemoveFromFavorites(code, size);
             return;
         }
         else

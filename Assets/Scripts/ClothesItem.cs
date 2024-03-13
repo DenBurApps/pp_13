@@ -16,6 +16,7 @@ public class ClothesItem : MonoBehaviour
     [SerializeField] private Button _favoriteButton;
     [SerializeField] private GameObject _isSale;
     [SerializeField] private LocalizedTMPText _nameLocalized;
+    [SerializeField] private FavoriteButton _favoriteBtn;
 
     public void Init(ClothesSO clothesSO)
     {
@@ -24,6 +25,8 @@ public class ClothesItem : MonoBehaviour
         _nameLocalized.LocalizationKey = _clothesInfo.Name;
         _priseText.text = _clothesInfo.Cost + "$";
         _isSale.SetActive(_clothesInfo.IsSale);
+        _favoriteBtn.Init(_clothesInfo.Code, _clothesInfo.HasSize.FindIndex(x => x.Equals(true)));
+        _favoriteBtn.RefreshButton();
         _buyButton.onClick.AddListener(AddToBasket);
         _favoriteButton.onClick.AddListener(AddToFavorite);
         _showInfoButton.onClick.AddListener(ShowInfo);

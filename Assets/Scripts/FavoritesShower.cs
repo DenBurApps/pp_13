@@ -7,6 +7,7 @@ public class FavoritesShower : MonoBehaviour
     [SerializeField] private FavoriteItem _clothesItem;
     [SerializeField] private Transform _container;
     [SerializeField] private ItemsContainer _itemsContainer;
+    [SerializeField] private GameObject _emptyAllert;
     private List<FavoriteItem> _currentItems = new List<FavoriteItem>();
 
     private void Awake()
@@ -41,6 +42,14 @@ public class FavoritesShower : MonoBehaviour
             _currentItems.Add(item);
             ClothesSO clothes = _itemsContainer.GetClothesSO(fav.Items[i]);
             item.Init(clothes, fav.ItemsSize[i]);
+        }
+        if (fav.Items.Count <= 0)
+        {
+            _emptyAllert.SetActive(true);
+        }
+        else
+        {
+            _emptyAllert.SetActive(false);
         }
     }
 }
